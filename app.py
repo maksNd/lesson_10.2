@@ -15,7 +15,7 @@ if __name__ == "__main__":
 
     @app.route("/candidates/<pk>")
     def candidates_by_pk(pk) -> str:
-        return f"<img src='({picture_url})'>, {get_by_pk(candidates, int(pk))}"
+        return f"{get_by_pk(candidates, int(pk))}"
 
 
     @app.route("/skills/<skill>")
