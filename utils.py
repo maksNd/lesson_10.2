@@ -11,12 +11,8 @@ def load_candidates(json_file: str = "candidates.json") -> list:
 
 
 def get_all(candidates: list) -> str:
-    """Возвращает имена всех кандидатов"""
-    """
-    Имя кандидата -
-    Позиция кандидата
-    Навыки через запятую
-    """
+    """Возвращает имена, позиции и навыки всех кандидатов"""
+
     candidates_list = []
     for candidate in candidates:
         candidates_list.append(f"\tИмя кандидата - {candidate['name']}\n"
@@ -26,8 +22,8 @@ def get_all(candidates: list) -> str:
     return ("<pre>" + "\n" + "\n".join(candidates_list) + "</pre>")
 
 
-def get_by_pk(candidates: list, pk: int):
-    """Возвращает кандидата по pk"""
+def get_by_pk(candidates: list, pk: int) -> str:
+    """Возвращает имя, позицию и навыки кандидата по pk"""
 
     for candidate in candidates:
         if candidate["pk"] == pk:
@@ -39,8 +35,9 @@ def get_by_pk(candidates: list, pk: int):
     return "No candidate with such pk"
 
 
-def get_by_skill(candidates: list, skill_name: str):
-    """Возвращает имя кандидата по навыку"""
+def get_by_skill(candidates: list, skill_name: str) -> str:
+    """Возвращает имя, позицию и навыки кандидата по навыку"""
+
     candidates_by_skill = []
     for candidate in candidates:
         if skill_name.strip().lower() in candidate["skills"].lower():
