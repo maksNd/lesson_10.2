@@ -48,7 +48,6 @@ def get_by_skill(candidates: list, skill_name: str):
                                        f"\tПозиция кандидата - {candidate['pk']}\n"
                                        f"\tНавыки кандидата: {candidate['skills']}\n")
     if len(candidates_by_skill) > 0:
-        # return ("<pre>" + "\n" + "\n".join(candidates_list) + "</pre>")
         return ("<pre>" + "\n" + "\n".join(candidates_by_skill) + "</pre>")
     else:
         return "No candidate with such skills"
