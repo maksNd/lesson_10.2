@@ -10,17 +10,26 @@ def load_candidates(json_file: str = "candidates.json") -> list:
     return data_from_json
 
 
-def get_all(candidates: list) -> list:
+def get_all(candidates: list) -> str:
     """Возвращает имена всех кандидатов"""
-
+    """
+    Имя кандидата -
+    Позиция кандидата
+    Навыки через запятую
+    """
     candidates_list = []
     for candidate in candidates:
-        candidates_list.append(candidate["name"])
+        candidates_list.append(f"\tИмя кандидата - {candidate['name']}\n"
+                               f"\tПозиция кандидата - {candidate['pk']}\n"
+                               f"\tНавыки кандидата: {candidate['skills']}\n")
 
-    return candidates_list
+    return ("\n".join(candidates_list))
 
 
-def get_by_pk(candidates: list, pk: int) -> str | None:
+# print(get_all(load_candidates()))
+
+
+def get_by_pk(candidates: list, pk: int):
     """Возвращает кандидата по pk"""
 
     for candidate in candidates:
