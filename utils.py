@@ -23,10 +23,7 @@ def get_all(candidates: list) -> str:
                                f"\tПозиция кандидата - {candidate['pk']}\n"
                                f"\tНавыки кандидата: {candidate['skills']}\n")
 
-    return ("\n".join(candidates_list))
-
-
-# print(get_all(load_candidates()))
+    return ("<pre>" + "\n" + "\n".join(candidates_list) + "</pre>")
 
 
 def get_by_pk(candidates: list, pk: int):
@@ -34,13 +31,23 @@ def get_by_pk(candidates: list, pk: int):
 
     for candidate in candidates:
         if candidate["pk"] == pk:
-            return candidate["name"]
+            return f"<pre>\n" \
+                   f"\tИмя кандидата - {candidate['name']}\n" \
+                   f"\tПозиция кандидата - {candidate['pk']}\n" \
+                   f"\tНавыки кандидата: {candidate['skills']}\n" \
+                   f"</pre>"
     return "No candidate with such pk"
 
 
 def get_by_skill(candidates: list, skill_name: str):
     """Возвращает имя кандидата по навыку"""
+    candidates_by_skill = []
     for candidate in candidates:
-        if skill_name.strip().lower() in candidate["skills"]:
-            return candidate["name"]
-    return "No candidate with such skills"
+        if skill_name.strip().lower() in candidate["skills"].lower():
+            candidates_by_skill.append(f"\tИмя кандидата - {candidate['name']}\n"
+                                       f"\tПозиция кандидата - {candidate['pk']}\n"
+                                       f"\tНавыки кандидата: {candidate['skills']}\n")
+    if len(candidates_by_skill) > 0:
+        return "\n".join(candidates_by_skill)
+    else:
+        return "No candidate with such skills"
