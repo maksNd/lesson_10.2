@@ -27,7 +27,7 @@ def get_by_pk(candidates: list, pk: int) -> str:
 
     for candidate in candidates:
         if candidate["pk"] == pk:
-            return f"<img src='({candidate['picture']})'>\n" \
+            return f"<img src='{candidate['picture']}'>\n" \
                    f"<pre>\n" \
                    f"\tИмя кандидата - {candidate['name']}\n" \
                    f"\tПозиция кандидата - {candidate['position']}\n" \

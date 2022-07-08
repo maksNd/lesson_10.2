@@ -1,6 +1,5 @@
 from flask import Flask
 from utils import load_candidates, get_all, get_by_pk, get_by_skill
-from constants import picture_url
 
 if __name__ == "__main__":
     candidates: list = load_candidates()
