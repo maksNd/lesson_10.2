@@ -14,7 +14,7 @@ if __name__ == "__main__":
 
     @app.route("/candidates/<pk>")
     def candidates_by_pk(pk) -> str:
-        return f"{get_by_pk(candidates, int(pk))}"
+        return get_by_pk(candidates, int(pk))
 
 
     @app.route("/skills/<skill>")
